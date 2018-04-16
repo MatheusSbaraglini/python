@@ -1,4 +1,5 @@
-from app import db, manager
+from app import db, ma
+
 
 class Cliente(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -10,6 +11,11 @@ class Cliente(db.Model):
     endereco_id = db.Column(db.Integer, db.ForeignKey('endereco.id'))
     endereco = db.relationship('Endereco')
 
+class ClienteSchema(ma.Schema):
+    class Meta:
+        model = Cliente
+
 
 db.create_all()
-manager.create_api(Cliente, methods=['POST', 'GET', 'PUT', 'DELETE'])
+cliente_schema = ClienteSchema()
+# manager.create_api(Cliente, methods=['POST', 'GET', 'PUT', 'DELETE'])

@@ -1,7 +1,7 @@
 from app import app
 from app.routes import index
-from app.models import endereco
-from app.models import cliente
+from app.models import endereco, cliente
+from app.routes.cliente_routes import clientes
 
 
 if __name__ == '__main__':

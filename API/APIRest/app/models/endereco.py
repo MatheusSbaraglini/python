@@ -1,4 +1,4 @@
-from app import db, manager
+from app import db, ma
 
 
 class Endereco(db.Model):
@@ -7,5 +7,10 @@ class Endereco(db.Model):
     numero = db.Column(db.Integer)
     bairro = db.Column(db.String(50))
 
+class EnderecoSchema(ma.Schema):
+    class Meta:
+        model = Endereco
+
+
 db.create_all()
-manager.create_api(Endereco, methods=['POST', 'GET', 'PUT', 'DELETE'])
+# manager.create_api(Endereco, methods=['POST', 'GET', 'PUT', 'DELETE'])
