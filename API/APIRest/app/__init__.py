@@ -11,4 +11,3 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 # manager = APIManager(app, flask_sqlalchemy_db=db)
-
