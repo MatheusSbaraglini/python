@@ -10,9 +10,9 @@ class Cliente(db.Model):
     email = db.Column(db.String(20), unique=True)
 
     endereco_id = db.Column(db.Integer, db.ForeignKey('endereco.id'))
-    endereco = db.relationship('Endereco', backref='enderecos')
+    endereco = db.relationship('Endereco', backref='clientes')
 
-class ClienteSchema(ma.Schema):
+class ClienteSchema(ma.ModelSchema):
     class Meta:
         model = Cliente
 
